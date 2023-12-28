@@ -3,7 +3,8 @@
 This repository contains the official implementation of CIT4DNN, a black-box test generation method for DNNs proposed in our paper "CIT4DNN: Generating Diverse and Rare Inputs for Neural Networks Using Latent Space Combinatorial Testing".
 
 ## Datasets and Models
-The artifact supports MNIST, FashionMNIST, SVHN, TaxiNet, and Udacity datasets. Pretrained Variational autoencoder (VAE) and DNN models for all the five datasets are available in [VAE](https://github.com/less-lab-uva/CIT4DNN/tree/main/VAE) and [DNN](https://github.com/less-lab-uva/CIT4DNN/tree/main/DNN) directories respectively. These directories also include scripts for training the models. Add zenodo link,,,
+The artifact supports MNIST, FashionMNIST, SVHN, TaxiNet, and Udacity datasets. Pretrained Variational autoencoder (VAE) and DNN models for the MNIST dataset are available at [VAE](https://github.com/less-lab-uva/CIT4DNN/tree/main/VAE) and [DNN](https://github.com/less-lab-uva/CIT4DNN/tree/main/DNN) directories respectively. These directories also include scripts for training the models. 
+Pretrained DNN and VAE models for all the five datasets are available in zenodo, and they should be copied to the appropriate directories for running the full studies.
 
 ## Setup
 We used Python 3.8 for running the experiments. Use the below instructions for creating the virtual environment for running the scripts.
