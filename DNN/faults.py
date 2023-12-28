@@ -2,13 +2,15 @@ import numpy as np
 from sklearn.metrics import accuracy_score, mean_squared_error
 from Model2_mnist import Model2_mnist
 from Model3_mnist import Model3_mnist
-from Model1_fmnist import Model1_fmnist
-from Model2_fmnist import Model2_fmnist
-from Model1_svhn import Model1_svhn
-from Model2_svhn import Model2_svhn
-from Model1_taxinet import * 
-import Model1_udacity
-import Model3_udacity
+import os
+if os.path.exists("./Model1_fmnist.py"): #below files are available in zenodo
+    from Model1_fmnist import Model1_fmnist
+    from Model2_fmnist import Model2_fmnist
+    from Model1_svhn import Model1_svhn
+    from Model2_svhn import Model2_svhn
+    from Model1_taxinet import * 
+    import Model1_udacity
+    import Model3_udacity
 from keras.layers import Input
 from keras.datasets import mnist
 import argparse
