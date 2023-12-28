@@ -15,7 +15,7 @@ import time
 if __name__ == "__main__":
     start = time.time()
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='MNIST', choices=["MNIST", "SVHN", "FashionMNIST", "TaxiNet", "BeamNG"])
+    parser.add_argument('--dataset', type=str, default='MNIST', choices=["MNIST", "SVHN", "FashionMNIST", "TaxiNet", "Udacity"])
     parser.add_argument('--strategy', type=str, default='density', choices=["density", "mean", "max_density", "random"])
     parser.add_argument('--factor', type=int, default=1, help="Latent sample factor")
     parser.add_argument("--density_range", type=str, default=None)
