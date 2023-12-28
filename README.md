@@ -57,12 +57,3 @@ Generating report...
 ### Latent Sample Generator
 
 ### Test Generator
-
-
-
-## References
-<a id="1">[1]</a> Xiao, Zhisheng, Qing Yan, and Yali Amit. "Likelihood regret: An out-of-distribution detection score for variational auto-encoder." Advances in neural information processing systems 33 (2020): 20685-20696.
-
-<a id="2">[2]</a> Kim, Hyunjik, and Andriy Mnih. "Disentangling by factorising." International Conference on Machine Learning. PMLR, 2018.
-
-<a id="3">[3]</a> Chen, Ricky TQ, et al. "Isolating sources of disentanglement in variational autoencoders." Advances in neural information processing systems 31 (2018).
