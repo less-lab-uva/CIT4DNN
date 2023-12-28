@@ -213,4 +213,4 @@ if __name__ == "__main__":
     vae_suffix = f"_{vae_sample}"
     index_suffix = f"_{args.index}" if args.index else ""
     main(args)
-    
+    print(f"LVGENTIME {args.density_range} {time.time()-start} seconds")
