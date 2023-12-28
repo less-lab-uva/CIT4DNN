@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mkdir -p Results/Logs
+mkdir -p Results/SampleInputs
+mkdir -p Reports
+
 d="MNIST"
 echo "Running tests for "$d
 for r in {1..2} #repeat the experiment n times
