@@ -1,6 +1,6 @@
 # Constrained Combinatorial Interaction Testing
 
-# Setup
+## Setup
 Running this program requires GCC and z3 solver installed.
 
 Follow the instruction at https://github.com/Z3Prover/z3/tree/master for installing the z3 solver using the C++ compiler.
@@ -20,14 +20,14 @@ make clean
 make
 ```
 
-# Usage
+## Usage
 
-## CIT Parameters used by CIT4DNN:
+### CIT Notation used by CIT4DNN:
 - t: strength of CIT 
 - factors: the number of non-noise latent dimensions of the VAE
 - levels: number of partitions along each latent dimension
 
-## Running CCIT
+### Running CCIT
 ```
 ./maetg <inputs file> <avoids file> -r <repetitions> -d <target density tag>
 
@@ -54,7 +54,7 @@ The target density files have to be generated using [gen_bounds_targetdensities.
 
 This program generates a log file, aetglog_z\<factors\>\_p\<levels\>\_t\<t\>\<target density tag\>.out, and an RCCA, aetg_z\<factors\>\_p\<levels\>\_t\<t\>\<target density tag\>.out in the [Results/CoveringArrays](https://github.com/less-lab-uva/CIT4DNN/tree/main/Results/CoveringArrays) directory.
 
-## Example 
+### Example 
 Below command is used for generating RCCA for the MNIST experiments for the target density D1 mentioned in the paper.
 
 ```
