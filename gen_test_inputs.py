@@ -59,7 +59,7 @@ if __name__ == "__main__":
     density_suffix=f"_{args.density_range}" if args.density_range else "" 
         
     assert vae_arch == "TwoStage", "This script works only for a TwoStage VAE"
-        
+
     assert os.path.exists(f"./Results/{dataset}_{vae_arch}{vae_suffix}/sample_{args.strategy}{args.factor}_z{info_dim}_p{partitions}_t{ways}{density_suffix}{index_suffix}.txt"), f"latent vector file ./Results/{dataset}_{vae_arch}{vae_suffix}/sample_{args.strategy}{args.factor}_z{info_dim}_p{partitions}_t{ways}{density_suffix}{index_suffix}.txt not generated"
     latent_vectors = np.loadtxt(f"./Results/{dataset}_{vae_arch}{vae_suffix}/sample_{args.strategy}{args.factor}_z{info_dim}_p{partitions}_t{ways}{density_suffix}{index_suffix}.txt", delimiter=" ")
     no_samples = latent_vectors.shape[0]
@@ -90,6 +90,17 @@ if __name__ == "__main__":
     save_image(ts[indices],f'./Results/SampleInputs/{dataset}{density_suffix}.png')
     
     ts = ts.numpy()
+    if dataset == "Udacity":
+        IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS = 160, 320, 3
+        result_ts = np.zeros((ts.shape[0],IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS), dtype=np.float32)
+        ts = (np.moveaxis(ts, 1,-1)*255).astype('uint8')
+        assert ts.shape[-1] == 3, "incorrect shape"
+        for i in range(ts.shape[0]):
+            temp = cv2.resize(ts[i], (IMAGE_WIDTH, IMAGE_HEIGHT), cv2.INTER_AREA)
+            temp = cv2.cvtColor(temp, cv2.COLOR_RGB2YUV)
+            result_ts[i] = temp
+        ts = np.moveaxis(result_ts, 3,1)
+        print(ts.shape, np.amax(ts), np.amin(ts))
     np.save(f"./Results/{dataset}_{vae_arch}{vae_suffix}/ts_{args.strategy}{args.factor}_z{info_dim}_p{partitions}_t{ways}{density_suffix}{index_suffix}.npy", ts)
     print(f"TSGENTIME {args.density_range} {time.time()-start} seconds") #test set generation time
     print(f"TSSIZE {args.density_range} {ts.shape[0]}") #no of tests generated
