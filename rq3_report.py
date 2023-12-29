@@ -4,12 +4,11 @@ import csv
 from statistics import mean
 import numpy as np
 
-datasets = str(sys.argv)
-datasets = datasets[1:-1]
+datasets = sys.argv[1:-1]
 no_repetitions = int(sys.argv[-1])
 
 mean_rows = []
-for dataset in ["MNIST"]:
+for dataset in datasets:
     mean_row1 = [dataset,"#tests"]
     mean_row2 = [dataset,"#faults"]
     for l in range(1,6): #5 levels
@@ -22,7 +21,7 @@ for dataset in ["MNIST"]:
             fault_time = []
             lv_size = []
             faults_size = []
-            for i in range(1,no_repetitions): #n repetitions of the experiment 
+            for i in range(1,no_repetitions+1): #n repetitions of the experiment 
                 row.append(i)
                 with open(f"Results/Logs/{dataset}_results_{i}.txt", 'r') as log_file:
                     log_content = log_file.read()
