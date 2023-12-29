@@ -24,7 +24,7 @@ We used Python 3.8 for running the experiments. Use the below instructions for c
 The bash script runs the experiment only 2 times in the interest of time. Please note that the script is run 10 times and average values are reported in the experiments presented in the paper.
 The script prints out the average number of faults present in the generated test sets as the final output which should approximately match the first row of Table 3 in the paper.
  
-The script runs for about 15 minutes and should display the below output. The runtime logs are saved in `Results/Logs` directory and the output in `Reports` directory. The script also saves sample test inputs in `Results/SampleInputs` directory.
+The script runs for about 15 minutes and should display the below output. The runtime logs are saved in `Results/Logs` directory and the output in `Reports` directory. The script also saves sample test inputs as image files in `Results/SampleInputs` directory.
 
 ```
 ./run_mnist.sh
@@ -51,7 +51,7 @@ docker build -t cit4dnn .
 docker run cit4dnn
 ```
 
-The full study can be run by using `./run_test.sh`. This script runs the above experiment for all the five datasets used in the paper and repeats the experiment 10 times.
+The full study can be run by using `./run_tests.sh`. This script runs the above experiment for all the five datasets used in the paper and repeats the experiment 10 times.
 Please note that this script runs for many hours. The result of this script is the complete Table 3 presented in the paper.
 
 ```
@@ -64,7 +64,7 @@ CIT4DNN implementation has three major modules, Constrained Combinatorial Intera
 ### CCIT
 CCIT is implemented by extending greedy AETG-SAT covering array generation algorithm<sup>[[1]](#1)</sup> with an SMT solver to handle the radial constraints formulated over the geometry of the latent space of a variational autoencoder. This module generates RCCA representing the test descriptions and the implementation is present in the [AETG](https://github.com/less-lab-uva/CIT4DNN/tree/main/AETG) directory of the artifact. The results are saved in the `Results` directory, including RCCA and runtime logs with the metadata and the execution time. 
 
-The AETG-SAT algorithm is proposed by Myra Cohen, Matthew Dwyer, and Jiangfan Shi, and we thank them for sharing the implementation. The primary AETG algorithm<sup>[[2]](#2)</sup> is implemented by Myra Cohen and the SAT part of the algorithm is contributed by Jiangfan Shi. We added the SMT solver part to the algorithm in order to support the constraints used by CIT4DNN.
+The AETG-SAT algorithm is proposed by Myra Cohen, Matthew Dwyer, and Jiangfan Shi, and we thank them for sharing the implementation. The primary AETG algorithm<sup>[[2]](#2)</sup> is implemented by Myra Cohen and the SAT part of the algorithm is contributed by Jiangfan Shi. We added the SMT solver part to the algorithm in order to support the radial constraints used by CIT4DNN.
 
 ### Sample Partition
 `gen_latent_samples.py` implements the Sample Partition module. 
