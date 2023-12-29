@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mkdir -p Results/Logs
+mkdir -p Results/SampleInputs
+mkdir -p Reports
+
 for d in "MNIST" "FashionMNIST" "SVHN" "TaxiNet" "Udacity"
 do
 	echo "Running tests for "$d
