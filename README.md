@@ -64,6 +64,9 @@ CIT4DNN implementation has three major modules, Constrained Combinatorial Intera
 ### CCIT
 CCIT is implemented by extending greedy AETG-SAT covering array generation algorithm<sup>[[1]](#1)</sup> with an SMT solver to handle the radial constraints formulated over the geometry of the latent space of a variational autoencoder. This module generates RCCA representing the test descriptions and the implementation is present in the [AETG](https://github.com/less-lab-uva/CIT4DNN/tree/main/AETG) directory of the artifact. The results are saved in the `Results` directory, including RCCA and runtime logs with the metadata and the execution time. 
 
+All the RCCA used in the research are included in [Results/CoveringArrays](https://github.com/less-lab-uva/CIT4DNN/tree/main/Results/CoveringArrays) since generating RCCA is costly.
+Please refer to the readme provided in the [AETG](https://github.com/less-lab-uva/CIT4DNN/tree/main/AETG) directory for information about running the module.
+
 The AETG-SAT algorithm is proposed by Myra Cohen, Matthew Dwyer, and Jiangfan Shi, and we thank them for sharing the implementation. The primary AETG algorithm<sup>[[2]](#2)</sup> is implemented by Myra Cohen and the SAT part of the algorithm is contributed by Jiangfan Shi. We added the SMT solver part to the algorithm in order to support the radial constraints used by CIT4DNN.
 
 ### Sample Partition
