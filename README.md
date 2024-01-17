@@ -7,6 +7,7 @@ The artifact supports MNIST, FashionMNIST, SVHN, TaxiNet, and Udacity datasets. 
 Pretrained DNN and VAE models for all the five datasets are available in [zenodo](https://doi.org/10.5281/zenodo.10471079), and they should be copied to the appropriate directories for running the full studies.
 
 ## Setup
+Running the scripts requires a Linux platform with Python installed.
 We used Python 3.8 for running the experiments. Use the below instructions for creating the virtual environment for running the scripts.
 - Create virtual environment
 
